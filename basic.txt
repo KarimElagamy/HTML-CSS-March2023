@@ -1,0 +1,64 @@
+URL: Uniform Resource Locator - www.google.com --> IP address 128.26.34.91
+DNS: Domain Name System
+IP: Internet Protocol
+IP adress: Internet Protocol Address
+ISP: Internet Service Provider
+HTTP: Hypertext Transfer Protocol
+HTTPS: Hypertext Transfer Protocol Secure
+HTTP vs HTTPS: HTTP is unsecured while HTTPS is secured. HTTP uses Port 80 while HTTPS uses port 443. HTTP operates at the application layer, while HTTPS operates at the Transport Layer. No SSL certificates are required for HTTP, while HTTPS requires that you have an SSL certificate and a CA signs it.
+CA: Certificate Authority
+SSL: Secure Sockets Layer 
+HTML: Hypertext Markup Language
+CSS: Cascading Style Sheets
+2 Styles of CSS: Inline CSS, External Stylesheets
+CSS selectors: ID and Class
+ID: Unique identifier for a specific element on your document
+Class: An identifier for potentially a group of elements on your document which share something in common
+2 Different types of Lists: Ordered Lists, and Unordered lists
+
+HTTP Request Methods:
+HTTP GET, HTTP POST, HTTP PUT, HTTP DELETE, HTTP PATCH
+
+Example POST Request: Creating an entirely new resource
+Request Header:
+{
+    url that it has to go to
+    the action that you are doing
+    time
+    date
+}
+Request Body:
+{
+    'email': 'karimsemail@gmail.com',
+    'password': 'password',
+    'name': 'Karim'
+}
+
+Example PUT Request: Updating an existing resource
+Request Header:
+{
+    url that it has to go to
+    the action that you are doing
+    time
+    date
+}
+Request Body:
+{
+    'email': 'karimsemail@gmail.com',
+    'password': 'Password123',
+    'name': 'Karim'
+}
+
+Example PATCH Request: Partially updating an existing resource
+Request Header:
+{
+    url that it has to go to
+    the action that you are doing
+    time
+    date
+    who's account or origin of request
+}
+Request Body:
+{
+    'password': 'password123'
+}
