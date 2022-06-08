@@ -33,20 +33,41 @@
         <li>i</li>
         <li>a</li>
     </ul>
+    <hr>
+    <form onsubmit="validateForm()" method="post" name="myForm" class="forms">
+        <label for="Email" name="Email">Email: </label>
+        <input type="text" id="Email" name="Email"><br>
+        <label for="Password" name="Password">Password: </label>
+        <input type="password" id="Password" name="Password">
+        <input type="submit" value="Submit">
+        <input type="button" onclick="resetForm()" value="Clear Form">
+    </form>
+    <button id="bgColor">Change BG Color</button>
+    <hr>
     <table border=“1”>
-        <tr>
-            <th> Column 1 header </th>
-            <th> Column 2 header </th>
-        </tr>
-        <tr>
-            <td> Row1, Col1 </td>
-            <td> Row1, Col2 </td>
-        </tr>
-        <tr>
-            <td> Row2, Col1 </td>
-            <td> Row2, Col2 </td>
-        </tr>
+        <thead>
+            <tr>
+                <th> Column 1 header </th>
+                <th> Column 2 header </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> Row1, Col1 </td>
+                <td> Row1, Col2 </td>
+            </tr>
+            <tr>
+                <td> Row2, Col1 </td>
+                <td> <a href="https://www.google.com"><button type="button">MyButton</button></a></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <td>Total Sum:</td>
+            <td>500</td>
+        </tfoot>
     </table>
+    <hr>
+    <script src="assets/scripts/app.js"></script>
 </body>
 
 </html>
