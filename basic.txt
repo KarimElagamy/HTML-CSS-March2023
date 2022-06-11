@@ -62,3 +62,18 @@ Request Body:
 {
     'password': 'password123'
 }
+
+The Document Object Model (DOM) is a programming interface for web documents. It represents the page 
+so that programs can change the document structure, style, and content. The DOM represents the document 
+as nodes and objects; that way, programming languages can interact with the page.
+
+JavaScript Events:
+onchange:	An HTML element has been changed
+onclick:	The user clicks an HTML element
+onmouseover:The user moves the mouse over an HTML element
+onmouseout:	The user moves the mouse away from an HTML element
+onkeydown:	The user pushes a keyboard key
+onload: 	The browser has finished loading the page
+
+btoa(x) to Encrypt
+atob(x) to Decrypt
