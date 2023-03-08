@@ -1,6 +1,6 @@
 function resetForm(){
-    document.getElementById("fName").value = "";
-    document.getElementById("lName").value = "";
+    document.getElementById("Email").value = "";
+    document.getElementById("Password").value = "";
 }
 
 function validateForm(){
@@ -99,7 +99,7 @@ salariesArray.push(200, 300, 400, 500, 600, 700, 800);
 
 console.log(salariesArray);
 
-salariesArray.splice(4,2)
+salariesArray.splice(4,2);
 
 console.log(salariesArray);
 
@@ -145,6 +145,7 @@ console.log(localStorage.getItem('userToken'));
 //Session Storage
 let x = 'Strawberry Pancake';
 sessionStorage.setItem('favoriteFood', btoa(x));
+console.log(sessionStorage.getItem('favoriteFood'));
 console.log("First Session Storage Item: " + atob(sessionStorage.getItem('favoriteFood')));
 sessionStorage.setItem('userId', 'govhdfhsofjsojfsojfoisjfsokjfsojsfosfjsfhs');
 console.log("Our User ID: " + sessionStorage.getItem('userId'));
@@ -154,12 +155,17 @@ sessionStorage.clear();
 console.log(sessionStorage.getItem('userId'));
 
 //Cookies
-document.cookie = "new_Sample_Cookie=This_is_our_Cookie_Sample; expires=Mon, 13 Jun 2022 12:00:00 UTC; path=/";
+document.cookie = "new_Sample_Cookie=This_is_our_Cookie_Sample; expires=tuesday, 7 Mar 2023 12:00:00 UTC; path=/";
 document.cookie = "no_flag_Cookie=This_is_our_cookie_with_no_flags";
+let z = btoa("This_is_our_cookie_with_no_flags");
+document.cookie = "Encrypted_Cookie=" + z;
 console.log(document.cookie);
 
 //Get Current Date and Time
 var currentDate = new Date();
+currentDate.setDate(currentDate.getDate() + 7);
+document.cookie = "no_flag_Cookie3=This_is_our_cookie_with_no_flags; Max-Age=100000";
+console.log(document.cookie);
 console.log(currentDate);
 
 //XMLHttpRequest
@@ -168,14 +174,14 @@ oReq.addEventListener("load", reqListener);
 oReq.open("GET", "https://jsonplaceholder.typicode.com/posts/1");
 oReq.send();
 function reqListener(){
-    console.log(this.responseText);
+    console.log(this.response);
 }
 
 var oreq = new XMLHttpRequest();
-oreq.addEventListener("load", reqListener);
+oreq.addEventListener("load", reqListener2);
 oreq.open("POST", "https://jsonplaceholder.typicode.com/posts");
 oreq.send("title=Example POST Request&body=Antra.com&userId=1");
-function reqListener(){
+function reqListener2(){
     console.log(this.responseText);
 }
 
@@ -188,17 +194,22 @@ function reqListener(){
 
 function promiseDemo(){
     let p = new Promise(function(resolve, reject){
-        let dept={
-            id:1,
-            name: "Full Stack"
+        //Imagine you make an HTTP call which returns true or false - for example creating an account
+        //return true if the account is created successfully, return false if the account is not created successfully
+        let result = true;
+        if (result === true){
+            resolve("Account created successfully");
         }
-        resolve(dept);
-        reject("The service is currently unavailable");
+        else {
+            reject("Account creation failed");
+        }
     })
     p.then(function(d){
-        console.log(d)
+        console.log(d);
+    }).then(function(d2){
+        console.log(d2 + "second time");
     }).catch(function(e){
-        console.log(e)
+        console.log(e);
     })
 }
 promiseDemo();
@@ -238,7 +249,8 @@ fetch("https://jsonplaceholder.typicode.com/posts", {
     },
 })
 .then((response) => response.json())
-.then((json) => console.log(json));
+.then((json) => console.log(json))
+.catch((mistake) => console.log(mistake));
 //Update a resource
 fetch('https://jsonplaceholder.typicode.com/posts/1', {
   method: 'PUT',
@@ -269,20 +281,21 @@ fetch('https://jsonplaceholder.typicode.com/posts/1', {
   //Deleting a resource
   fetch('https://jsonplaceholder.typicode.com/posts/1', {
   method: 'DELETE',
-});
+}).then((response) => response.json())
+.then((json) => console.log(json));
 
 //Regular Expressions
 //inputText was a reference variable from my sample App that fetched the email input field via document.getElementById("Email");
-function ValidateEmail(inputText) {
+var inputText = document.getElementById("Email");
+function ValidateEmail() {
     var mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (inputText.value.match(mailFormat)) {
       alert("Valid email address!");
       document.myForm.Email.focus();
-      return true;
     }
     else {
       alert("You have entered an invalid email address!");
       document.myForm.Email.focus();
-      return false;
     }
   }
+
